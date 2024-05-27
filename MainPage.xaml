@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorSelector.MainPage">
+
+    <ContentPage.Resources>
+        <Color x:Key="Primary">red</Color>
+        <Color x:Key="Secondary">brown</Color>
+        <Color x:Key="Tertiary">gray</Color>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid x:Name="Container" BackgroundColor="black">
+        <Frame Margin="10,0,10,0" 
+               VerticalOptions="Center"
+               WidthRequest="500" >
+            <VerticalStackLayout Spacing="15" 
+                                 VerticalOptions="Center">
+                <Label FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       Text="Spalvų parinktukas"/>
+
+                <Label Text="Raudona Spalva"/>
+                <Slider x:Name="sldRed"
+                        ThumbColor="{StaticResource Primary}"
+                        MaximumTrackColor="{StaticResource Tertiary}"
+                        MinimumTrackColor="{StaticResource Secondary}"
+                        ValueChanged="Slider_ValueChanged"/>
+
+                <Label Text="Žalia Spalva"/>
+                <Slider x:Name="sldGreen"
+                        ThumbColor="{StaticResource Primary}"
+                        MaximumTrackColor="{StaticResource Tertiary}"
+                        MinimumTrackColor="{StaticResource Secondary}"
+                        ValueChanged="Slider_ValueChanged"/>
+
+                <Label Text="Mėlyna Spalva"/>
+                <Slider x:Name="sldBlue"
+                        ThumbColor="{StaticResource Primary}"
+                        MaximumTrackColor="{StaticResource Tertiary}"
+                        MinimumTrackColor="{StaticResource Secondary}"
+                        ValueChanged="Slider_ValueChanged"/>
+
+                <Frame CornerRadius="25" HorizontalOptions="Center">
+                    <HorizontalStackLayout>
+                        <Label x:Name="lblHex"
+                               HorizontalTextAlignment="End"
+                               Text="#000000"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+                        <Button Margin="10,0,0,0"
+                                HeightRequest="25"
+                                VerticalOptions="Center"
+                                WidthRequest="40"
+                                Text="K"
+                                Background="White"
+                                FontAttributes="Bold"
+                                Clicked="ImageButton_Clicked"/>
+                                
+                    </HorizontalStackLayout>
+                </Frame>
+
+                    <Button x:Name="btnRandom"
+                            BackgroundColor="{StaticResource Primary}"
+                            WidthRequest="240"
+                            Text="Parinkti Random spalvą"
+                            Clicked="btnRandom_Clicked"/>
+                </VerticalStackLayout>
+        </Frame>
+    </Grid>
+    </ScrollView>
+</ContentPage>
